@@ -19,7 +19,7 @@ app.use(express.json());
 
 
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.j7rvpzy.mongodb.net/?retryWrites=true&w=majority`;
+const uri = 'mongodb+srv://geniseCarDBUser:52Qhnp0aKJgQAMef@cluster0.j7rvpzy.mongodb.net/?retryWrites=true&w=majority';
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
@@ -29,7 +29,7 @@ function verifyJWT(req, res, next) {
         return res.status(401).send({ message: 'unauthorized access' })
     }
     const token = authHeader.split(' ')[1];
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, function (err, decoded) {
+    jwt.verify(token, '1e8eaa381f263909d024e83ec6ead17e722414a0b97f178f46b0a810b9f3ac2f509628656b781a378d34676db58c2da9f77d2841ee2da9a626c0f28e4b8a01a6', function (err, decoded) {
         if (err) {
             return res.status(401).send({ message: 'unauthorized access' })
         }
